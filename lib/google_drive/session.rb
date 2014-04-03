@@ -253,6 +253,15 @@ module GoogleDrive
           return Collection.new(self, to_v3_url(url))
         end
 
+        # Returns GoogleDrive::Collection with given +id+.
+        #
+        # e.g.
+        #   session.collection_by_id("0B9GfDpQ2pBVUODNmOGE0NjIzMWU3ZC00NmUyLTk5NzEtYaFkZjY1MjAyxjMc")
+        def collection_by_id(id)
+          url = "#{DOCS_BASE_URL}/folder%3A#{id}"
+          return Collection.new(self, to_v3_url(url))
+        end
+
         # Creates new spreadsheet and returns the new GoogleDrive::Spreadsheet.
         #
         # e.g.
