@@ -253,6 +253,10 @@ module GoogleDrive
       return "\#<%p %s>" % [self.class, fields.map() { |k, v| "%s=%p" % [k, v] }.join(", ")]
     end
 
+    def updated_at
+      return Time.parse(self.document_feed_entry.css("updated").text)
+    end
+
   end
 
 end
